@@ -1,0 +1,19 @@
+<section>
+  <div class="section12">
+      <div  *ngFor="let item of viewproduct" class="aboutcontainer">
+          <div class="aboutimage">
+                  <img src="{{item.image}}">
+          </div>
+          <div class="abouttext">
+              <h1>{{item.title}}</h1>
+              <span>Category: {{item.category}}</span><br>
+              <h4>Verified: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></h4>
+              <h2>Weight: {{item.weight}}</h2>
+              <h2>Price: Rs {{item.price}}</h2>
+              <p>{{item.about}}</p>
+              <a routerLink="/products" (click)=removeViewItem(item) >Back</a>
+          </div>
+      </div>
+  </div>
+ 
+ </section>

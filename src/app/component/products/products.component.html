@@ -1,0 +1,92 @@
+<section>
+    <div class="containerdisplay">
+        <div class="displaytext">
+            <span>Fresh Farmed Picked Products</span><br>
+            <h1>Delivered in 20 Minutes. Best Price Assured and 20% Discount On Shopping Upto Rs 500</h1>
+            <button routerLink="/cart">Shop</button>
+        </div>
+        <div class="displayimage">
+           <div class="image-display">
+            <img src="https://i.imgur.com/QP9OKZk.png"/>
+           </div>
+           </div>
+    </div>
+    <div class="containerflex">
+        <ul>
+            <li><i class="fa-solid fa-tractor"></i> &nbsp;Organic Products</li>
+            <li><i class="fa-solid fa-medal"></i> &nbsp;Best Quality</li>
+            <li><i class="fa-solid fa-hand-holding-dollar"></i> &nbsp;Best Price</li>
+            <li> <i class="fa-solid fa-truck"></i> &nbsp;free Delivery</li>
+        </ul>
+    </div>
+    <div class="categorytext">
+        <h2>Our Fresh</h2>
+        <h1>Product Categories</h1>
+    </div>
+    <div id="shop" class="categorycontainer">
+        <div class="categoryitem" style="background-color: #e9f4e3">
+            <div class="category-image">
+                <a (click)="filter('')" ><img src="https://cdn-icons-png.flaticon.com/512/2700/2700487.png"></a>
+            </div>
+        </div>
+        <div class="categoryitem" style="background-color: #faeaea">
+            <div class="category-image">
+                <a (click)="filter('meat')"><img src="https://cdn-icons-png.flaticon.com/512/1046/1046751.png"></a>
+            </div>
+        </div>
+        <div class="categoryitem" style="background-color: #fef4ea">
+            <div class="category-image">
+                <a (click)="filter('seafood')"><img src="https://cdn-icons-png.flaticon.com/512/3082/3082055.png"></a>
+            </div>
+        </div>
+        <div class="categoryitem" style="background-color: #eeeef9">
+            <div class="category-image">
+                <a (click)="filter('bakery')"><img src="https://cdn-icons-png.flaticon.com/512/992/992747.png"></a>
+            </div>
+        </div>
+        <div class="categoryitem" style="background-color: #f7f6d7">
+            <div class="category-image">
+                <a (click)="filter('dairy')"><img src="https://cdn-icons-png.flaticon.com/512/2674/2674505.png"></a>
+            </div>
+        </div>
+        <div class="categoryitem" style="background-color: #efeafe">
+            <div class="category-image">
+                <a (click)="filter('fruitandvegetables')"><img src="https://i.imgur.com/o2ej70b.png"></a>
+            </div>
+        </div>
+        
+    </div>
+    <div class="container">
+       
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
+        <div class="card">
+            <div class="imgBx">
+                <img src="{{item.image}}" alt="nike-air-shoe">
+            </div>
+
+            <div class="contentBx">
+
+                <h2>{{item.title}}</h2>
+
+                <div class="size">
+                    <h3>Weight :</h3>
+                    <span>{{item.weight}}</span>
+                </div>
+
+                <div class="color">
+
+                    <h3>Price :</h3>
+                    <span>Rs {{item.price}}</span>
+                </div>
+                <a (click)= addtocart(item) (click)="popUp" >Cart</a>
+                <a routerLink="/about" (click)=addtoview(item) >About</a>
+            </div>
+
+        </div>
+    </ng-container>
+    </div>
+    </section> 
+    <hr>
+    <app-footer>
+
+    </app-footer>

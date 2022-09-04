@@ -1,0 +1,16 @@
+<header>
+    <a href="#" class="logo">Dream<span>Bean</span></a>
+    <form action="">
+        <input  [(ngModel)]="searchTerm" (keyup)="search($event)" type="text" id="search-bar" placeholder="Search Products" >
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+    <div class="icons">
+        <a href="#" class="fa-brands fa-instagram"></a>
+        <a href="#" class="fa-brands fa-linkedin"></a>
+        <a href="#" class="fa-brands fa-github"></a>
+        <a href="#" class="fa-brands fa-twitter"></a>
+        <a routerLink="cart" class="fas fa-shopping-cart"></a>
+        <span class="cartnumber">{{totalItem}}</span>
+    </div>
+</header>
+<hr>

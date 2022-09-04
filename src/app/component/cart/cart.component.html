@@ -1,0 +1,81 @@
+<ng-container *ngIf="products.length==0">
+<section>
+    <div class="cartcontainer">
+        <div class="cartcard">
+            <div class="emptycard">
+                <img src="https://cdn.dribbble.com/users/5107895/screenshots/14532312/media/a7e6c2e9333d0989e3a54c95dd8321d7.gif">
+                <div class="continuebutton">
+                    <a href="#">Continue Shopping</a>
+                </div>
+                
+            </div>
+        </div>
+    </div> 
+</section>
+</ng-container>
+<ng-container *ngIf="products.length!=0">
+<section>
+    <div class="cartaddproductscontainer">
+        <div class="addcartcardproducts">
+            <div class="productcart">
+                <h1>Cart items</h1>
+                <h4><a id="delete" (click)= "removeall()"><i class="fa-solid fa-trash"></i></a></h4>
+                <hr>
+                <div id="style-1" class="scrollbar">
+                    
+                    <div class="addproduct11">
+                        <img src="https://i.imgur.com/GrdOTKD.png">
+                    <h2 style="font-weight: bold"></h2>
+                    <h2 id="price"><span style="font-weight: bold">Price</span></h2>
+                    <div class="incredecre">
+                        <button type="button"  class="quantity_minus"><span> 
+                            </span></button>
+                            <input style="border: none;background-color: transparent;" name="quantity" type="text" class="quantity_input" value="">
+                            <button  class="quantity_plus"><span></span></button>
+                    </div>
+                        <h2><span style="font-weight: bold">Total</span></h2>
+                        <a href="#"></a>
+                </div>
+                    <div *ngFor="let item of products;" class="addproduct">
+                        <img src="{{item.image}}">
+                    <h2>{{item.title}}</h2>
+                    <h2 id="price"><span>₹ {{item.price}}</span></h2>
+                    <div class="incredecre">
+                        <button type="button" (click)=decQnt(item.id,item.quantity) class="quantity_minus"><span> 
+                            -</span></button>
+                            <input name="quantity" type="text" class="quantity_input" value="{{item.quantity}}">
+                            <button (click)=incQnt(item.id,item.quantity) class="quantity_plus"><span>+</span></button>
+                    </div>
+                        <h2><span>₹ {{item.price * item.quantity | number}}</span></h2>
+                        <a (click)="removeItem(item);singledelete(item.id)"><i class="fa-solid fa-trash-can"></i></a>
+                </div>
+                </div>
+                
+           
+                </div>
+                
+        </div>
+        <div class="checkout">
+            <h1>Payment</h1>
+            <div class="inputarea">
+                <input type="text" placeholder="Enter Name">
+                <input type="text" placeholder="Enter Email">
+                <input type="text" placeholder="Enter Phone">
+                <input type="text" placeholder="Enter Address">
+            </div>
+            <h2>Payment Modes</h2>
+            <ul>
+                <li><a href="#"><i class="fa-brands fa-cc-mastercard"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-cc-visa"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-cc-paypal"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-money-check-dollar"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-cc-amex"></i></a></li>
+            </ul>
+            <h4>Total: <span>₹ {{total}}</span></h4>
+            <h5>Terms And Condition Apply</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quaerat pariatur fugiat?</p>
+            <a id="paymentbutton" (click)="paymentpopup();removeall()">Pay</a>
+        </div>
+    </div>
+</section> 
+</ng-container>
